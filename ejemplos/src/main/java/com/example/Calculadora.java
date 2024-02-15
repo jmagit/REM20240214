@@ -6,4 +6,14 @@ public class Calculadora {
 		return a + b;
 	}
 
+	int divide(int a, int b) {
+		return a / b;
+	}
+
+	double divide(double a, double b) {
+		if(b == 0)
+			throw new ArithmeticException("/ by zero");
+		return a / b;
+	}
+
 }

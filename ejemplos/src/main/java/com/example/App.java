@@ -12,5 +12,7 @@ public class App {
 		System.out.println(calculadora.add(0.1, 0.2));
 		System.out.println(calculadora.add(1, -0.9));
 		System.out.println(calculadora.add(1, -0.9) + calculadora.add(0.1, 0.2));
+		System.out.println(calculadora.divide(1.0, 0.0) * 0);
+		System.out.println(calculadora.divide(0, 0));
 	}
 }
