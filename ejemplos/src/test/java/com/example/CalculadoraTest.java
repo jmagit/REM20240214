@@ -2,6 +2,8 @@ package com.example;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.Duration;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -70,7 +72,7 @@ class CalculadoraTest {
 			}
 			@Test
 			void lento() {
-				assertEquals(1, calculadora.divide(3, 2));
+				assertTimeout(Duration.ofMillis(100), () -> calculadora.divide(3, 2));
 			}
 		}
 
