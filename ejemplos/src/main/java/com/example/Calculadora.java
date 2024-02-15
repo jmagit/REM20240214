@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.Optional;
+
 public class Calculadora {
 	
 	double add(double a, double b) {
@@ -16,4 +18,6 @@ public class Calculadora {
 		return a / b;
 	}
 
+//	String algo() { return null; }
+//	Optional<String> algo2() { return Optional.empty(); }
 }
