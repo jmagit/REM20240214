@@ -68,6 +68,10 @@ class CalculadoraTest {
 //		}
 				}
 			}
+			@Test
+			void lento() {
+				assertEquals(1, calculadora.divide(3, 2));
+			}
 		}
 
 		@Nested
@@ -75,7 +79,7 @@ class CalculadoraTest {
 
 			@Test
 			void testDivideDoubleDouble() {
-				assertThrows(ArithmeticException.class, () -> calculadora.divide(3.0, 0));
+				assertThrows(ArithmeticException.class, () -> calculadora.divide(3.0, 0), "Divide por 0");
 			}
 
 		}
