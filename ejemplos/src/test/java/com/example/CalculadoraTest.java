@@ -14,6 +14,8 @@ import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 @DisplayName("Pruebas de la clase Calculadora")
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
@@ -37,13 +39,14 @@ class CalculadoraTest {
 	void tearDown() throws Exception {
 	}
 
-	@Test
-	void test_Add() {
+	@ParameterizedTest(name = "{displayName}: {0} + {1} = {2} ")
+	@CsvSource({"1,2,3", "2,-1,1", "-5,7,2", "-1,-1,-2", "0,0,0","0.1,0.2,0.3"})
+	void test_Add(double op1, double op2, double result) {
 		Calculadora calculadora = new Calculadora();
 
-		var resultado = calculadora.add(2, 1);
+		var resultado = calculadora.add(op1, op2);
 
-		assertEquals(3, resultado);
+		assertEquals(result, resultado);
 	}
 	
 	@Test
@@ -54,6 +57,7 @@ class CalculadoraTest {
 
 		assertEquals(0.3, resultado);
 	}
+	
 	@RepeatedTest(value = 5, name = "{displayName} {currentRepetition}/{totalRepetitions}")
 	void test_Privado() {
 		assertEquals(0.3, calculadora.toDouble(0.1+0.2));
