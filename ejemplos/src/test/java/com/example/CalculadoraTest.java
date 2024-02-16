@@ -44,6 +44,18 @@ class CalculadoraTest {
 
 		assertEquals(3, resultado);
 	}
+	@Test
+	void test_AddIEEE() {
+		Calculadora calculadora = new Calculadora();
+
+		var resultado = calculadora.add(0.1, 0.2);
+
+		assertEquals(0.3, resultado);
+	}
+	@Test
+	void test_Privado() {
+		assertEquals(0.1, calculadora.toDouble(1-0.9));
+	}
 
 	@Nested
 	class Divide {

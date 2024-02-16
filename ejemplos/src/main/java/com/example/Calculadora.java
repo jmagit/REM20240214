@@ -1,24 +1,30 @@
 package com.example;
 
-import java.util.Optional;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Calculadora {
+	double toDouble(double o) {
+		return (new BigDecimal(o))
+				.setScale(16, RoundingMode.HALF_UP)
+				.doubleValue();
+	}
 	
-	double add(double a, double b) {
-		return a + b;
+	public double add(double a, double b) {
+		return toDouble(a + b);
 	}
 
-	int divide(int a, int b) {
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+	public int divide(int a, int b) {
+//		try {
+//			Thread.sleep(5000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		return a / b;
 	}
 
-	double divide(double a, double b) {
+	public double divide(double a, double b) {
 		if(b == 0)
 			throw new ArithmeticException("/ by zero");
 		return a / b;
