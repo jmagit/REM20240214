@@ -12,6 +12,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 @DisplayName("Pruebas de la clase Calculadora")
@@ -44,6 +45,7 @@ class CalculadoraTest {
 
 		assertEquals(3, resultado);
 	}
+	
 	@Test
 	void test_AddIEEE() {
 		Calculadora calculadora = new Calculadora();
@@ -52,8 +54,9 @@ class CalculadoraTest {
 
 		assertEquals(0.3, resultado);
 	}
-	@Test
+	@RepeatedTest(value = 5, name = "{displayName} {currentRepetition}/{totalRepetitions}")
 	void test_Privado() {
+		assertEquals(0.3, calculadora.toDouble(0.1+0.2));
 		assertEquals(0.1, calculadora.toDouble(1-0.9));
 	}
 
