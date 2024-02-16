@@ -32,7 +32,7 @@ class CalculadoraTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		calculadora = new Calculadora();
+		calculadora = new CalculadoraImpl();
 	}
 
 	@AfterEach
@@ -42,7 +42,7 @@ class CalculadoraTest {
 	@ParameterizedTest(name = "{displayName}: {0} + {1} = {2} ")
 	@CsvSource({"1,2,3", "2,-1,1", "-5,7,2", "-1,-1,-2", "0,0,0","0.1,0.2,0.3"})
 	void test_Add(double op1, double op2, double result) {
-		Calculadora calculadora = new Calculadora();
+		Calculadora calculadora = new CalculadoraImpl();
 
 		var resultado = calculadora.add(op1, op2);
 
@@ -50,8 +50,9 @@ class CalculadoraTest {
 	}
 	
 	@Test
+	@Smoke
 	void test_AddIEEE() {
-		Calculadora calculadora = new Calculadora();
+		Calculadora calculadora = new CalculadoraImpl();
 
 		var resultado = calculadora.add(0.1, 0.2);
 
@@ -60,8 +61,8 @@ class CalculadoraTest {
 	
 	@RepeatedTest(value = 5, name = "{displayName} {currentRepetition}/{totalRepetitions}")
 	void test_Privado() {
-		assertEquals(0.3, calculadora.toDouble(0.1+0.2));
-		assertEquals(0.1, calculadora.toDouble(1-0.9));
+		assertEquals(0.3, ((CalculadoraImpl)calculadora).toDouble(0.1+0.2));
+		assertEquals(0.1, ((CalculadoraImpl)calculadora).toDouble(1-0.9));
 	}
 
 	@Nested

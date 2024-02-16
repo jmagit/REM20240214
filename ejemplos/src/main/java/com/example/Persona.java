@@ -6,11 +6,20 @@ public class Persona {
 	private int id;
 	private String nombre;
 	private String apellidos;
+	double bruto = 1000;
+	double retencion = 100;
+	
+	Calculadora calculadora = new CalculadoraImpl();
+	
+	public Persona(int id) {
+		super();
+		this.id = id;
+	}
 	
 	public Persona(int id, String nombre, String apellidos) {
 		super();
 		this.id = id;
-		this.nombre = nombre;
+		setNombre(nombre);
 		this.apellidos = apellidos;
 	}
 	
@@ -24,6 +33,8 @@ public class Persona {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
+		if(nombre == null || "".equals(nombre))
+			throw new IllegalArgumentException("El nombre es obligatorio");
 		this.nombre = nombre;
 	}
 	public String getApellidos() {
@@ -55,6 +66,8 @@ public class Persona {
 		return id == other.id;
 	}
 	
-	
+	public double salario() {
+		return calculadora.add(bruto, -retencion);
+	}
 	
 }
