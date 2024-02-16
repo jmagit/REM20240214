@@ -12,7 +12,7 @@ public class CalculadoraImpl implements Calculadora {
 	
 	@Override
 	public double add(double a, double b) {
-		return toDouble(a - b);
+		return toDouble(a + b);
 	}
 
 	@Override

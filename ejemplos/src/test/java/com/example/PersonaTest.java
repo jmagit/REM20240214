@@ -12,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
+
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -65,7 +66,20 @@ class PersonaTest {
 	}
 
 	@Test
-	void calculaSalario() {
+	void calculaSalarioUnitaria() {
+		Calculadora calculadora = mock(Calculadora.class);
+		when(calculadora.add(anyDouble(), anyDouble())).thenReturn(900.0);
+//		assertEquals(4, calculadora.add(2, 2));
+//		assertEquals(3, calculadora.add(1, 1));
+//		
+		var p = new Persona(1, "Pepito", "Grillo");
+		p.calculadora = calculadora;
+		assertEquals(900, p.salario());
+		verify(calculadora).add(1000, -100);
+	}
+
+	@Test
+	void calculaSalarioIntegracion() {
 		var p = new Persona(1, "Pepito", "Grillo");
 		assertEquals(900, p.salario());
 	}
