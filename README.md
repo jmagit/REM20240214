@@ -25,6 +25,8 @@
 - https://github.com/jmagit/demos-devops
 - https://github.com/jmagit/demos-frontend-angular
 - https://github.com/jmagit/MOCKWebServer
+  
+    docker run -d --name web-for-testing -p 8181:8181 jamarton/web-for-testing
 
 ### Comandos
 
