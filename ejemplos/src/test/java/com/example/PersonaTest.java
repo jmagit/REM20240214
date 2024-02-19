@@ -2,7 +2,10 @@ package com.example;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assumptions.assumeFalse;
 
 import org.junit.jupiter.api.AfterAll;
@@ -62,6 +65,14 @@ class PersonaTest {
 		var p1 = new Persona(1, "Pepito", "Grillo");
 		var p2 = new Persona(1);
 //		assertEquals(p1, p2);
+		var x = (p1.equals(p1));
+		x = (p1.equals(null));
+		x = (p1.equals(new Persona(11)));
+		assertNotNull(p2);
+//		assertEquals(p1, p2);
+//		assertTrue(p1.equals(p1));
+//		assertFalse(p1.equals(null));
+//		assertFalse(p1.equals(new Persona(11)));
 //		assertSame(p1, p2);
 	}
 
