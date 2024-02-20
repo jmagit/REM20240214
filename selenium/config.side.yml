@@ -1,0 +1,4 @@
+capabilities:
+  browserName: "firefox"
+baseUrl: "http://host.docker.internal:8181"
+server: "http://localhost:4444/wd/hub"

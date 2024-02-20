@@ -21,6 +21,13 @@
       "targets": [],
       "value": ""
     }, {
+      "id": "7e66f706-15f3-4e1d-aa3b-1f8e7e568d91",
+      "comment": "",
+      "command": "run",
+      "target": "login",
+      "targets": [],
+      "value": ""
+    }, {
       "id": "d8a225bd-921e-4fc1-9bd9-38455f6920cc",
       "comment": "",
       "command": "assertText",
@@ -212,6 +219,13 @@
         ["xpath=//h1[contains(.,'Web4Testing')]", "xpath:innerText"]
       ],
       "value": "Web4Testing"
+    }, {
+      "id": "bc02d1ee-aecf-4f43-8e74-2b22ca3b9889",
+      "comment": "",
+      "command": "run",
+      "target": "logout",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "bd7b1fa9-bd86-494d-8492-3878ab2d2885",
@@ -220,7 +234,7 @@
       "id": "b9f6ca8a-4b10-4232-907a-96795a4e38bb",
       "comment": "",
       "command": "open",
-      "target": "/",
+      "target": "/calculadora",
       "targets": [],
       "value": ""
     }, {
@@ -228,28 +242,6 @@
       "comment": "",
       "command": "setWindowSize",
       "target": "1280x720",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "f0e464f5-4875-40e0-bf09-0dd72ca132e7",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Calculadora",
-      "targets": [
-        ["linkText=Calculadora", "linkText"],
-        ["css=.nav-item:nth-child(2) > .nav-link", "css:finder"],
-        ["xpath=//a[contains(text(),'Calculadora')]", "xpath:link"],
-        ["xpath=//div[@id='navbarsDefault']/ul/li[2]/a", "xpath:idRelative"],
-        ["xpath=//a[contains(@href, '/calculadora')]", "xpath:href"],
-        ["xpath=//li[2]/a", "xpath:position"],
-        ["xpath=//a[contains(.,'Calculadora')]", "xpath:innerText"]
-      ],
-      "value": ""
-    }, {
-      "id": "368184aa-3dc4-46c1-a7b2-f3119eb8f815",
-      "comment": "",
-      "command": "assertTitle",
-      "target": "Calculadora",
       "targets": [],
       "value": ""
     }, {
@@ -289,7 +281,7 @@
       "id": "5fe87165-c9f5-43ad-9bb8-822fd12486f7",
       "comment": "",
       "command": "click",
-      "target": "css=.btnDigito:nth-child(12)",
+      "target": "xpath=//input[@value='6']",
       "targets": [
         ["css=.btnDigito:nth-child(12)", "css:finder"],
         ["xpath=//input[@value='6']", "xpath:attributes"],
@@ -388,7 +380,7 @@
       "id": "7a764931-23ab-4236-befb-d0459a97a77c",
       "comment": "",
       "command": "click",
-      "target": "css=.btnDigito:nth-child(18)",
+      "target": "xpath=//input[@value='±']",
       "targets": [
         ["css=.btnDigito:nth-child(18)", "css:finder"],
         ["xpath=//input[@value='±']", "xpath:attributes"],
@@ -530,6 +522,106 @@
         ["xpath=//output[contains(.,'0,3')]", "xpath:innerText"]
       ],
       "value": "0,3"
+    }]
+  }, {
+    "id": "a1192ab3-c0a7-4962-8ec6-5e321c191d24",
+    "name": "login",
+    "commands": [{
+      "id": "ae552300-8eec-435e-845e-3cc8cf4be7c0",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "071b5364-5512-49e8-bfd0-7471cfc892ba",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d931c910-cf40-4980-93fa-d24930267924",
+      "comment": "",
+      "command": "type",
+      "target": "id=txtUsuario",
+      "targets": [
+        ["id=txtUsuario", "id"],
+        ["name=Usuario", "name"],
+        ["css=#txtUsuario", "css:finder"],
+        ["xpath=//input[@id='txtUsuario']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm']/div/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "adm@example.com"
+    }, {
+      "id": "50d8d675-435b-43a4-8553-8315ba53f9f7",
+      "comment": "",
+      "command": "type",
+      "target": "id=txtPassword",
+      "targets": [
+        ["id=txtPassword", "id"],
+        ["name=Password", "name"],
+        ["css=#txtPassword", "css:finder"],
+        ["xpath=//input[@id='txtPassword']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm']/div/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "P@$$w0rd"
+    }, {
+      "id": "fa96f833-6be7-4cea-9055-6f6255bbc606",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-sign-in-alt",
+      "targets": [
+        ["css=.fa-sign-in-alt", "css:finder"],
+        ["xpath=//button[@id='btnSendLogin']/i", "xpath:idRelative"],
+        ["xpath=//button/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "74c98ad7-4c1f-4e34-bfc3-7f56dde6ad60",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=userData",
+      "targets": [
+        ["id=userData", "id"],
+        ["css=#userData", "css:finder"],
+        ["xpath=//span[@id='userData']", "xpath:attributes"],
+        ["xpath=//small[@id='loginData']/span", "xpath:idRelative"],
+        ["xpath=//small/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Hola Administrador')]", "xpath:innerText"]
+      ],
+      "value": "Hola Administrador"
+    }]
+  }, {
+    "id": "c1046cc2-9b93-401d-874e-8d436938e767",
+    "name": "logout",
+    "commands": [{
+      "id": "37921c12-dadb-48e5-88f8-95689565eb94",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "08d6ace4-c007-4977-865b-fd4d7e88b83c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1280x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "07fe8a93-c820-4def-ad3c-f881ec9f6d9b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.fa-sign-out-alt",
+      "targets": [
+        ["css=.fa-sign-out-alt", "css:finder"],
+        ["xpath=//button[@id='btnLogout']/i", "xpath:idRelative"],
+        ["xpath=//small/button/i", "xpath:position"]
+      ],
+      "value": ""
     }]
   }],
   "suites": [{
