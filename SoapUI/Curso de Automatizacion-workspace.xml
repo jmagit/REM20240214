@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <con:soapui-workspace name="Curso de Automatizacion" projectRoot="" soapui-version="5.7.1" xmlns:con="http://eviware.com/soapui/config">
   <con:settings/>
-  <con:project name="Calculator">C:/Cursos/REM20240214/SoapUI/Calculator-soapui-project.xml</con:project>
+  <con:project status="CLOSED" name="Calculator">C:/Cursos/REM20240214/SoapUI/Calculator-soapui-project.xml</con:project>
   <con:project name="Web4Testing">C:/Cursos/REM20240214/SoapUI/Web4Testing-soapui-project.xml</con:project>
   <con:project status="CLOSED" name="Petstore">C:/Cursos/REM20240214/SoapUI/Petstore-soapui-project.xml</con:project>
   <con:collectInfoForSupport>false</con:collectInfoForSupport>
